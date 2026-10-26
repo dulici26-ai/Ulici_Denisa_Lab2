@@ -75,6 +75,51 @@ namespace Ulici_Denisa_Lab2.Migrations
                     b.ToTable("Book");
                 });
 
+            modelBuilder.Entity("Ulici_Denisa_Lab2.Models.BookCategory", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<int?>("BookCategoryID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BookID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("BookCategoryID");
+
+                    b.HasIndex("BookID");
+
+                    b.HasIndex("CategoryID");
+
+                    b.ToTable("BookCategory");
+                });
+
+            modelBuilder.Entity("Ulici_Denisa_Lab2.Models.Category", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Category");
+                });
+
             modelBuilder.Entity("Ulici_Denisa_Lab2.Models.Publisher", b =>
                 {
                     b.Property<int>("ID")
@@ -107,9 +152,42 @@ namespace Ulici_Denisa_Lab2.Migrations
                     b.Navigation("Publisher");
                 });
 
+            modelBuilder.Entity("Ulici_Denisa_Lab2.Models.BookCategory", b =>
+                {
+                    b.HasOne("Ulici_Denisa_Lab2.Models.BookCategory", null)
+                        .WithMany("BookCategories")
+                        .HasForeignKey("BookCategoryID");
+
+                    b.HasOne("Ulici_Denisa_Lab2.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Ulici_Denisa_Lab2.Models.Category", "Category")
+                        .WithMany("BookCategories")
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("Ulici_Denisa_Lab2.Models.Author", b =>
                 {
                     b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Ulici_Denisa_Lab2.Models.BookCategory", b =>
+                {
+                    b.Navigation("BookCategories");
+                });
+
+            modelBuilder.Entity("Ulici_Denisa_Lab2.Models.Category", b =>
+                {
+                    b.Navigation("BookCategories");
                 });
 
             modelBuilder.Entity("Ulici_Denisa_Lab2.Models.Publisher", b =>

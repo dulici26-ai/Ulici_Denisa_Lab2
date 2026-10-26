@@ -19,12 +19,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Author[0].LastName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author[0].FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author[0].Books)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -36,12 +30,6 @@
             </td>
             <td>
                 @Html.DisplayFor(model => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Books)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

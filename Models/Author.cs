@@ -12,11 +12,10 @@ namespace Ulici_Denisa_Lab2.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; } = string.Empty;
 
-        // Proprietate calculată pentru a afișa ușor numele complet
         [Display(Name = "Author")]
-        public string FullName => $"{FirstName} {LastName}";
-
-        // Navigation property către cărți
-        public ICollection<Book>? Books { get; set; }
+        public string FullName => $"{FirstName} {LastName}"; 
+        
+        public ICollection<Book>? Books { get; set; }   
+        
     }
 }
