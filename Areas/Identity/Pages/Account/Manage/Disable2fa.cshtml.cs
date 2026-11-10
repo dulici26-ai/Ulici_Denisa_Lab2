@@ -7,17 +7,17 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Ulici_Denisa_Lab2.Data;
+//using Ulici_Denisa_Lab2.Data;
 
 namespace Ulici_Denisa_Lab2.Areas.Identity.Pages.Account.Manage;
 
 public class Disable2faModel : PageModel
 {
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly UserManager<IdentityUser> _userManager;
     private readonly ILogger<Disable2faModel> _logger;
 
     public Disable2faModel(
-        UserManager<ApplicationUser> userManager,
+        UserManager<IdentityUser> userManager,
         ILogger<Disable2faModel> logger)
     {
         _userManager = userManager;

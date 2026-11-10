@@ -1,6 +1,0 @@
-using Microsoft.AspNetCore.Identity;
-namespace Ulici_Denisa_Lab2.Data;
-// Add profile data for application users by adding properties to the ApplicationUser class
-public class ApplicationUser : IdentityUser
-{
-}

@@ -10,17 +10,17 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Ulici_Denisa_Lab2.Data;
+//using Ulici_Denisa_Lab2.Data;
 
 namespace Ulici_Denisa_Lab2.Areas.Identity.Pages.Account;
 
 [AllowAnonymous]
 public class RegisterConfirmationModel : PageModel
 {
-    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly UserManager<IdentityUser> _userManager;
     private readonly IEmailSender _sender;
 
-    public RegisterConfirmationModel(UserManager<ApplicationUser> userManager, IEmailSender sender)
+    public RegisterConfirmationModel(UserManager<IdentityUser> userManager, IEmailSender sender)
     {
         _userManager = userManager;
         _sender = sender;

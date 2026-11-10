@@ -154,7 +154,7 @@ namespace Ulici_Denisa_Lab2.Migrations.LibraryIdentity
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Ulici_Denisa_Lab2.Data.ApplicationUser", b =>
+            modelBuilder.Entity("Ulici_Denisa_Lab2.Data.IdentityUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -230,7 +230,7 @@ namespace Ulici_Denisa_Lab2.Migrations.LibraryIdentity
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Ulici_Denisa_Lab2.Data.ApplicationUser", null)
+                    b.HasOne("Ulici_Denisa_Lab2.Data.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -239,7 +239,7 @@ namespace Ulici_Denisa_Lab2.Migrations.LibraryIdentity
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Ulici_Denisa_Lab2.Data.ApplicationUser", null)
+                    b.HasOne("Ulici_Denisa_Lab2.Data.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -254,7 +254,7 @@ namespace Ulici_Denisa_Lab2.Migrations.LibraryIdentity
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Ulici_Denisa_Lab2.Data.ApplicationUser", null)
+                    b.HasOne("Ulici_Denisa_Lab2.Data.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -263,7 +263,7 @@ namespace Ulici_Denisa_Lab2.Migrations.LibraryIdentity
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Ulici_Denisa_Lab2.Data.ApplicationUser", null)
+                    b.HasOne("Ulici_Denisa_Lab2.Data.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
